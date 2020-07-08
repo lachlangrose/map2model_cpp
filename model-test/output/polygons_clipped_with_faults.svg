@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"
+"http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg width="818px" height="820px" viewBox="0 0 818 820" version="1.0" xmlns="http://www.w3.org/2000/svg">
+
+<g transform="translate(0,820)">
+<g transform="scale(1,-1)">
+<path d=" M 10.0 10.0 L 808.9 10.0 L 808.9 810.0 L 10.0 810.0 L 10.0 10.0"
+ style="fill:none; stroke:#b3b3da; stroke-opacity:1.0; stroke-width:0.8; " />
+
+<g stroke="black" stroke-width="3" fill="black">
+  <circle cx="10" cy="10" r="0.1"/>
+  <circle cx="808" cy="10" r="0.1"/>
+  <circle cx="808" cy="810" r="0.1"/>
+  <circle cx="10" cy="810" r="0.1"/>
+  <circle cx="10" cy="10" r="0.1"/>
+</g>
+</g>
+</g>
+</svg>
