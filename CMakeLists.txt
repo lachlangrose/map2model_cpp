@@ -1,6 +1,6 @@
 # Author: Vitaliy Ogarko, vogarko@gmail.com
 cmake_minimum_required (VERSION 2.8)
-project (Map2model-cpp)
+project (Map2model_cpp)
 
 option(DISABLE_LTO OFF)
 
@@ -15,11 +15,14 @@ SET (SRCS src/map2model.cpp
           src/graph_utils.cpp
           src/local_topology_analyzer.cpp
           src/topology_analyzer.cpp
-          src/lib/clipper.cpp
-          src/lib/svgbuilder.cpp)
+          src/clipper.cpp
+          src/svgbuilder.cpp
+          )
 
-SET (SRCS_INCLUDE src
-                  src/lib)
+SET (SRCS_INCLUDE include)
+
+# add_subdirectory(pybind11)
+# pybind11_add_module(Map2model_cpp src/example.cpp)
 
 add_executable(map2model ${SRCS})
 target_include_directories(map2model PUBLIC ${SRCS_INCLUDE})

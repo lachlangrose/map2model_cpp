@@ -1,1 +1,0 @@
-#ID,SiteCode,SiteCommo,PositionX,PositionY,DistanceToContact,ContainingPolygonID,NeighbourPolygonID,ContainingPolygonCode,NeighbourPolygonCode,ContactType,FaultID

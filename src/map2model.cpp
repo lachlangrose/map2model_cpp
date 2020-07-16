@@ -37,8 +37,9 @@ int main(int argc, char *argv[]) {
     ConverterLib::Parameters par;
     // const std::string parameter_lines = par.Read(parfile_path);
     const std::string parameter_lines = par.directRead(
-        "../model-test/output", "../model-test/tmp/geology.csv",
-        "../model-test/tmp/faults.csv", "../model-test/tmp/mindep.csv");
+        "../Turner_Syncline/output", "../Turner_Syncline/tmp/hams2_geol.csv",
+        "../Turner_Syncline/tmp/GEOS_GEOLOGY_LINEARSTRUCTURE_500K_GSD.csv",
+        "../Turner_Syncline/tmp/mindeps_2018.csv");
 
     // Create the output data folder.
     FileUtils::CreateDirectory(par.path_output.c_str());

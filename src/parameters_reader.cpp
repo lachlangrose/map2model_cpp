@@ -105,10 +105,10 @@ std::string Parameters::directRead(const std::string output,
   path_points = points;
 
   //------------------------------------------------------------------------------------------------
-  clipping_window[0] = 500057;
-  clipping_window[1] = 603028;
-  clipping_window[2] = 7455348;
-  clipping_window[3] = 7567953;
+  clipping_window[0] = 0;
+  clipping_window[1] = 0;
+  clipping_window[2] = 0;
+  clipping_window[3] = 0;
 
   graph_edge_width_categories.push_back(2000.0);
   graph_edge_width_categories.push_back(20000.0);
