@@ -2,7 +2,7 @@ Author: Vitaliy Ogarko, vogarko@gmail.com
 
 ## To build map2model:
 
-- If you want to install standalone map2model with Cmake, comment out the pybind11 include and code after the main function in map2model.cpp.
+- If you want to install standalone map2model with Cmake, comment out the pybind11 include in map2model.cpp and parameters_reader.cpp and parameters_reader.h, and code after the main function in map2model.cpp.
 
 mkdir build  
 cd build  

@@ -54,11 +54,10 @@ static Paths ReadCoordinates(const std::string &__line,
     ix = ConverterUtils::CoordToInteger(x);
     iy = ConverterUtils::CoordToInteger(y);
 
-    // TODO: Original csvs and directRead
-    if (ix < 4076981032068774 || ix > 6796680558010894 ||
-        iy < 74358400408943136 || iy > 75861207033895728) {
-      std::cout << "ix: " << ix << " iy:" << iy << std::endl;
-    }
+    // if (ix < 4076981032068774 || ix > 6796680558010894 ||
+    //     iy < 74358400408943136 || iy > 75861207033895728) {
+    //   std::cout << "ix: " << ix << " iy:" << iy << std::endl;
+    // }
 
     path.push_back(IntPoint(ix, iy));
 

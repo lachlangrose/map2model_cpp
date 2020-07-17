@@ -11,6 +11,8 @@
 #include <string>
 #include <vector>
 
+#include <pybind11/pybind11.h>
+namespace py = pybind11;
 namespace ConverterLib {
 
 class Parameters {
@@ -63,7 +65,9 @@ public:
   // Returns parameter lines that were read.
   std::string Read(const std::string &filename);
   std::string directRead(const std::string output, const std::string geology,
-                         const std::string faults, const std::string points);
+                         const std::string faults, const std::string points,
+                         py::dict bbox, py::dict config,
+                         const std::string commodities);
 };
 
 std::string getConstName(const std::map<std::string, std::string> &constNames,

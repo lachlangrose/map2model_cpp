@@ -41,60 +41,63 @@ std::vector<std::string> split(std::string str, std::string token) {
   return result;
 }
 
+namespace py = pybind11;
 // ? Reading input params directly from main
 std::string Parameters::directRead(const std::string output,
                                    const std::string geology,
                                    const std::string faults,
-                                   const std::string points) {
+                                   const std::string points, py::dict bbox,
+                                   py::dict config,
+                                   const std::string commodities) {
 
   //--- COLUMN NAMES IN CSV DATA FILES:
   //-------------------------------------------------------------
   constNames["FIELD_COORDINATES"] = "WKT";
 
-  constNames["FIELD_FAULT_ID"] = "OBJECTID";
+  constNames["FIELD_FAULT_ID"] = py::str(config["o"]);
 
-  constNames["FIELD_FAULT_FEATURE"] = "FEATURE";
+  constNames["FIELD_FAULT_FEATURE"] = py::str(config["f"]);
 
-  constNames["FIELD_POLYGON_ID"] = "OBJECTID";
+  constNames["FIELD_POLYGON_ID"] = py::str(config["o"]);
 
-  constNames["FIELD_POLYGON_LEVEL1_NAME"] = "UNITNAME";
+  constNames["FIELD_POLYGON_LEVEL1_NAME"] = py::str(config["u"]);
 
-  constNames["FIELD_POLYGON_LEVEL2_NAME"] = "GROUP_";
+  constNames["FIELD_POLYGON_LEVEL2_NAME"] = py::str(config["g"]);
 
-  constNames["FIELD_POLYGON_MIN_AGE"] = "MIN_AGE_MA";
+  constNames["FIELD_POLYGON_MIN_AGE"] = py::str(config["min"]);
 
-  constNames["FIELD_POLYGON_MAX_AGE"] = "MAX_AGE_MA";
+  constNames["FIELD_POLYGON_MAX_AGE"] = py::str(config["max"]);
 
-  constNames["FIELD_POLYGON_CODE"] = "CODE";
+  constNames["FIELD_POLYGON_CODE"] = py::str(config["c"]);
 
-  constNames["FIELD_POLYGON_DESCRIPTION"] = "DESCRIPTN";
+  constNames["FIELD_POLYGON_DESCRIPTION"] = py::str(config["ds"]);
 
-  constNames["FIELD_POLYGON_ROCKTYPE1"] = "ROCKTYPE1";
+  constNames["FIELD_POLYGON_ROCKTYPE1"] = py::str(config["r1"]);
 
-  constNames["FIELD_POLYGON_ROCKTYPE2"] = "ROCKTYPE2";
+  constNames["FIELD_POLYGON_ROCKTYPE2"] = py::str(config["r2"]);
 
-  constNames["FIELD_SITE_CODE"] = "SITE_CODE";
+  constNames["FIELD_SITE_CODE"] = py::str(config["msc"]);
 
-  constNames["FIELD_SITE_TYPE"] = "SITE_TYPE_";
+  constNames["FIELD_SITE_TYPE"] = py::str(config["mst"]);
 
-  constNames["FIELD_SITE_COMMO"] = "SITE_COMMO";
+  constNames["FIELD_SITE_COMMO"] = py::str(config["mscm"]);
 
   //--- SOME CONSTANTS:
   //----------------------------------------------------------------------------
-  constNames["FAULT_AXIAL_FEATURE_NAME"] = "Fold axial trace";
+  constNames["FAULT_AXIAL_FEATURE_NAME"] = py::str(config["fold"]);
 
-  constNames["SILL_STRING"] = "sill";
+  constNames["SILL_STRING"] = py::str(config["sill"]);
 
-  constNames["IGNEOUS_STRING"] = "intrusive";
+  constNames["IGNEOUS_STRING"] = py::str(config["intrusive"]);
 
-  constNames["VOLCANIC_STRING"] = "volcanic";
+  constNames["VOLCANIC_STRING"] = py::str(config["volcanic"]);
 
   constNames["IGNORE_DEPOSITS_SITE_TYPE"] = "Infrastructure";
 
   angleEpsilon = 1.0;
   distanceEpsilon = 15.0;
   faultFaultDistanceBuffer = 20.0;
-  pointToContactDistanceBuffer = 500.0;
+  pointToContactDistanceBuffer = std::stod(py::str(config["deposit_dist"]));
   intersectPolygonsDistanceBuffer = 3.0;
 
   //--- PATHS:
@@ -105,10 +108,10 @@ std::string Parameters::directRead(const std::string output,
   path_points = points;
 
   //------------------------------------------------------------------------------------------------
-  clipping_window[0] = 0;
-  clipping_window[1] = 0;
-  clipping_window[2] = 0;
-  clipping_window[3] = 0;
+  clipping_window[0] = std::stod(py::str(bbox["minx"]));
+  clipping_window[1] = std::stod(py::str(bbox["miny"]));
+  clipping_window[2] = std::stod(py::str(bbox["maxx"]));
+  clipping_window[3] = std::stod(py::str(bbox["maxy"]));
 
   graph_edge_width_categories.push_back(2000.0);
   graph_edge_width_categories.push_back(20000.0);
@@ -116,8 +119,7 @@ std::string Parameters::directRead(const std::string output,
 
   graph_edge_direction_type = 2;
 
-  std::string depositsString = "Fe,Cu,Au,NONE";
-  depositListForGraphInfo = split(depositsString, ",");
+  depositListForGraphInfo = split(commodities, ",");
 
   partial_graph_polygon_id = 32;
 
