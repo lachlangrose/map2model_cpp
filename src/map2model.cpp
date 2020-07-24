@@ -92,7 +92,7 @@ std::string runMap2Model(const std::string output, const std::string geology,
 
     // // Create the output data folder.
     FileUtils::CreateDirectory(par.path_output.c_str());
-    result += "Output directory created.\n";
+    result += "Output directory created at: " + output + "\n";
 
     // Main calculations start here.
     ConverterLib::TopologyAnalyzer topo_analyzer;
@@ -104,7 +104,7 @@ std::string runMap2Model(const std::string output, const std::string geology,
       topo_analyzer.AnalyzeGlobalTopology(par, parameter_lines);
     }
 
-    result += "Calculations done.\n";
+    result += "Topology analysis complete.\n";
 
   } catch (const std::exception &e) {
     std::cerr << "Unexpected exception in main caught: " << e.what()

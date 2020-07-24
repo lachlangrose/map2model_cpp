@@ -1,0 +1,34 @@
+include *.txt
+include Parfile
+recursive-include Turner_Syncline *.cpg
+recursive-include Turner_Syncline *.csv
+recursive-include Turner_Syncline *.dbf
+recursive-include Turner_Syncline *.gml
+recursive-include Turner_Syncline *.prj
+recursive-include Turner_Syncline *.py
+recursive-include Turner_Syncline *.qgs
+recursive-include Turner_Syncline *.shp
+recursive-include Turner_Syncline *.shx
+recursive-include Turner_Syncline *.svg
+recursive-include Turner_Syncline *.txt
+recursive-include include *.h
+recursive-include pybind11 *.TXT
+recursive-include pybind11 *.cmake
+recursive-include pybind11 *.cpp
+recursive-include pybind11 *.css
+recursive-include pybind11 *.gitmodules
+recursive-include pybind11 *.h
+recursive-include pybind11 *.in
+recursive-include pybind11 *.ini
+recursive-include pybind11 *.md
+recursive-include pybind11 *.png
+recursive-include pybind11 *.py
+recursive-include pybind11 *.rst
+recursive-include pybind11 *.sh
+recursive-include pybind11 *.svg
+recursive-include pybind11 *.txt
+recursive-include pybind11 *.yml
+recursive-include pybind11 Makefile
+recursive-include utils *.awk
+recursive-include utils *.gnu
+recursive-include utils *.sh
