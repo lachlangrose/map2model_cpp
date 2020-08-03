@@ -1,0 +1,37 @@
+{% set name = "map2model" %}
+{% set version = "1.0.1" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  git_url: https://github.com/Loop3D/map2model_cpp
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install ."
+
+requirements:
+  build: 
+    - {{ compiler('c') }}
+  host:
+    - pip
+    - python
+    - setuptools
+    - pybind11
+  run:
+    - python
+
+about:
+  home: "https://github.com/Loop3D/map2model_cpp"
+  license: MIT
+  license_family: MIT
+  license_file: 
+  summary: "Perform topological analysis on 2D map data."
+  doc_url: 
+  dev_url: 
+
+extra:
+  recipe-maintainers:
+    - yohanderose

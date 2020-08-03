@@ -122,13 +122,6 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    # install_requires=[
-    #     'GDAL',
-    #     'numpy',
-    #     'pandas',
-    #     'geopandas',
-    #     'shapely'
-    # ],
     ext_modules=ext_modules,
     setup_requires=['pybind11>=2.5.0'],
     cmdclass={'build_ext': BuildExt},
