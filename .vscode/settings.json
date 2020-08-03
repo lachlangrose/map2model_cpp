@@ -4,5 +4,6 @@
     "files.associations": {
         "optional": "cpp",
         "variant": "cpp"
-    }
+    },
+    "python.pythonPath": "C:\\Users\\yohan\\miniconda3\\python.exe"
 }

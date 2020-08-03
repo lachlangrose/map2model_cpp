@@ -108,8 +108,8 @@ class BuildExt(build_ext):
 
 
 setup(
-    name="map2model-loop3d",
-    version="1.0.0",
+    name="map2model",
+    version="1.0.1",
     author="Yohan de Rose",
     author_email="contact@loop3d.org",
     description="Perform topological analysis on 2D map data.",
