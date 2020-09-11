@@ -115,6 +115,8 @@ std::string runMap2Model(const std::string output, const std::string geology,
               << std::endl;
     result += e.what();
   }
+  
+  std::cout.clear();
 
   return result;
 }
