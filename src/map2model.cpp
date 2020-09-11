@@ -69,7 +69,7 @@ namespace py = pybind11;
 
 std::string runMap2Model(const std::string output, const std::string geology,
                          const std::string faults, const std::string points,
-                         py::dict bbox, py::dict config,
+                         py::dict bbox, py::dict config, py::bool_ quiet,
                          const std::string commodities) {
 
   std::string result = "";
@@ -80,6 +80,10 @@ std::string runMap2Model(const std::string output, const std::string geology,
   // }
 
   // py::print(py::str(config["o"]));
+
+  if (quiet) {
+      std::cout.setstate(std::ios_base::failbit);
+  }
 
   try {
 
