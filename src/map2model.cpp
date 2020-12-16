@@ -94,7 +94,7 @@ std::string runMap2Model(const std::string output, const std::string geology,
 
     result += "Successful parameter load\n";
 
-    // // Create the output data folder.
+    // Create the output data folder.
     FileUtils::CreateDirectory(par.path_output.c_str());
     result += "Output directory created at: " + output + "\n";
 

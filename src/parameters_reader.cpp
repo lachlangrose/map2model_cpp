@@ -98,7 +98,7 @@ std::string Parameters::directRead(const std::string output,
   distanceEpsilon = 15.0;
   faultFaultDistanceBuffer = 20.0;
   pointToContactDistanceBuffer = std::stod(py::str(config["deposit_dist"]));
-  intersectPolygonsDistanceBuffer = 3.0;
+  intersectPolygonsDistanceBuffer = 5.0;
 
   //--- PATHS:
   //-------------------------------------------------------------------------------------
