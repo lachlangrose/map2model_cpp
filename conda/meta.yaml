@@ -21,7 +21,7 @@ requirements:
     - setuptools
     - pybind11
   run:
-    - python
+    - python >=3.6
 
 about:
   home: "https://github.com/Loop3D/map2model_cpp"
