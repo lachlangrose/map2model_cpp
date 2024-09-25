@@ -5,9 +5,6 @@ package:
   name: "{{ name|lower }}"
   version: "{{ version }}"
 
-source:
-  git_url: https://github.com/Loop3D/map2model_cpp
-
 build:
   number: 0
   script: "{{ PYTHON }} -m pip install ."
@@ -22,6 +19,7 @@ requirements:
     - pybind11
   run:
     - python >=3.6
+    - numpy
 
 about:
   home: "https://github.com/Loop3D/map2model_cpp"
@@ -31,7 +29,3 @@ about:
   summary: "Perform topological analysis on 2D map data."
   doc_url: 
   dev_url: 
-
-extra:
-  recipe-maintainers:
-    - yohanderose

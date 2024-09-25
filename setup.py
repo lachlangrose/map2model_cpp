@@ -32,7 +32,7 @@ ext_modules = [
         sources=sorted(cpp_src),
         include_dirs=[
             get_pybind_include(),
-            'include'
+            os.path.abspath('include')
         ],
         language='c++'
     ),
