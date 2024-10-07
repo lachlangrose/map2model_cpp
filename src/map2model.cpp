@@ -17,21 +17,27 @@
 const bool RUN_TESTS = false;
 
 // Main entry point.
-int main(int argc, char *argv[]) {
-  if (RUN_TESTS) {
+int main(int argc, char *argv[])
+{
+  if (RUN_TESTS)
+  {
     ConverterLib::Test_FaultAndPolygonIntersecting();
     ConverterLib::Test_FaultsAreIntersecting();
     return 0;
   }
 
-  try {
+  try
+  {
     // Retrieve parameters filename from a command line.
     std::string parfile_path;
-    if (argc < 2) {
+    if (argc < 2)
+    {
       std::cout << "Error: parameter file is not specified!" << std::endl;
       std::cout << "Usage: map2model <Parfile>" << std::endl;
       exit(0);
-    } else {
+    }
+    else
+    {
       parfile_path = argv[1];
     }
 
@@ -51,12 +57,17 @@ int main(int argc, char *argv[]) {
     ConverterLib::TopologyAnalyzer topo_analyzer;
     topo_analyzer.Initialize(par);
 
-    if (par.subregion_size_x > 0 && par.subregion_size_y > 0) {
+    if (par.subregion_size_x > 0 && par.subregion_size_y > 0)
+    {
       topo_analyzer.AnalyzeLocalTopology(par);
-    } else {
+    }
+    else
+    {
       topo_analyzer.AnalyzeGlobalTopology(par, parameter_lines);
     }
-  } catch (const std::exception &e) {
+  }
+  catch (const std::exception &e)
+  {
     std::cerr << "Unexpected exception in main caught: " << e.what()
               << std::endl;
   }
@@ -70,22 +81,25 @@ namespace py = pybind11;
 std::string runMap2Model(const std::string output, const std::string geology,
                          const std::string faults, const std::string points,
                          py::dict bbox, py::dict config, py::bool_ quiet,
-                         const std::string commodities) {
+                         const std::string commodities)
+{
 
   std::string result = "";
-  //bool quiet=0;
-  // for (auto item : config) {
-  //   py::print(std::string(py::str(item.first)), ",",
-  //             std::string(py::str(item.second)));
-  // }
+  // bool quiet=0;
+  //  for (auto item : config) {
+  //    py::print(std::string(py::str(item.first)), ",",
+  //              std::string(py::str(item.second)));
+  //  }
 
   // py::print(py::str(config["o"]));
 
-  if (quiet) {
-      std::cout.setstate(std::ios_base::failbit);
+  if (quiet)
+  {
+    std::cout.setstate(std::ios_base::failbit);
   }
 
-  try {
+  try
+  {
 
     // Reading the parameters file.
     ConverterLib::Parameters par;
@@ -102,20 +116,24 @@ std::string runMap2Model(const std::string output, const std::string geology,
     ConverterLib::TopologyAnalyzer topo_analyzer;
     topo_analyzer.Initialize(par);
 
-    if (par.subregion_size_x > 0 && par.subregion_size_y > 0) {
+    if (par.subregion_size_x > 0 && par.subregion_size_y > 0)
+    {
       topo_analyzer.AnalyzeLocalTopology(par);
-    } else {
+    }
+    else
+    {
       topo_analyzer.AnalyzeGlobalTopology(par, parameter_lines);
     }
 
     result += "Topology analysis complete.\n";
-
-  } catch (const std::exception &e) {
+  }
+  catch (const std::exception &e)
+  {
     std::cerr << "Unexpected exception in main caught: " << e.what()
               << std::endl;
     result += e.what();
   }
-  
+
   std::cout.clear();
 
   return result;
@@ -125,7 +143,8 @@ int add(int i, int j) { return i + j; }
 
 // using CLP = ConverterLib::Parameters;
 
-PYBIND11_MODULE(map2model, m) {
+PYBIND11_MODULE(map2model, m)
+{
   m.doc() = "pybind11 example plugin"; // optional module docstring
 
   m.def("add", &add, "A function which adds two numbers");
