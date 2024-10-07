@@ -22,7 +22,7 @@ SET(SRCS src/map2model.cpp
 SET(SRCS_INCLUDE include)
 
 # Find Python
-find_package(Python COMPONENTS Development REQUIRED)  # Ensure Python dev headers are installed
+find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
 find_package(pybind11 CONFIG REQUIRED)
 
 # Create the executable first
@@ -50,3 +50,4 @@ endif()
 if (MSVC)
     target_compile_options(map2model PRIVATE /W4)
 endif()
+install(TARGETS map2model DESTINATION ${CMAKE_INSTALL_PREFIX}/map2model)
