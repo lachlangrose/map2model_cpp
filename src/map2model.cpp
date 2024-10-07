@@ -139,22 +139,11 @@ std::string runMap2Model(const std::string output, const std::string geology,
   return result;
 }
 
-int add(int i, int j) { return i + j; }
-
 // using CLP = ConverterLib::Parameters;
 
 PYBIND11_MODULE(map2model, m)
 {
   m.doc() = "pybind11 example plugin"; // optional module docstring
 
-  m.def("add", &add, "A function which adds two numbers");
   m.def("run", &runMap2Model, "Test function that does nuthin.");
-  // py::class_<TT>(m, "Test").def(py::init()).def("test", &TT::test);
-
-  // py::class_<CLP>(m, "ConverterLibParameters")
-  //     .def(py::init())
-  //     .def("directRead", &CLP::directRead)
-  //     .def_property_readonly("path_output", &CLP::path_output);
-
-  // m.def("run", &run, "Run map2model.");
 }
