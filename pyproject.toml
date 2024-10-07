@@ -10,7 +10,7 @@ build-backend = "scikit_build_core.build"
 [project]
 authors = [{ name = "Lachlan Grose", email = "lachlan.grose@monash.edu" }]
 name = "map2model"
-version = "0.6.0"
+version = "1.2.1"
 description = "python bindings for map2model"
 readme = "README.md"
 requires-python = ">=3.7"
