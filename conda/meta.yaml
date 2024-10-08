@@ -15,11 +15,15 @@ build:
 requirements:
   build: 
     - {{ compiler('cxx') }}
+    - scikit-build-core
+    - pybind11
+    - cmake
   host:
     - pip
     - python
     - setuptools
     - pybind11
+    - scikit-build-core
   run:
     - python >=3.6
 
@@ -34,4 +38,4 @@ about:
 
 extra:
   recipe-maintainers:
-    - yohanderose
+    - lachlangrose
