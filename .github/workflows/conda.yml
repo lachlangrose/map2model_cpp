@@ -17,6 +17,11 @@ jobs:
         with:
           auto-update-conda: true
           python-version: ${{ matrix.python-version }}
+      - name: Install Visual Studio Build Tools
+        if: matrix.os == 'windows-latest' # Only run this on Windows
+        run: |
+          choco install visualstudio2019buildtools --version 16.11.7 --params "/NoRestart"
+          choco install visualstudio2019-workload-vctools --params "/NoRestart"
       - uses: actions/checkout@v4
       - name: update submodules
         #       shell: bash -l {0}
