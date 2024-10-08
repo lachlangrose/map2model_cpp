@@ -38,7 +38,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          name: wheelhouse
+          path: wheelhouse
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           skip-existing: true
