@@ -10,8 +10,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: "windows-latest" #${{ fromJSON(vars.BUILD_OS)}}
-        python-version: 3.11 #${{ fromJSON(vars.PYTHON_VERSIONS)}}
+        os: ["windows-latest"] #${{ fromJSON(vars.BUILD_OS)}}
+        python-version: [3.11] #${{ fromJSON(vars.PYTHON_VERSIONS)}}
     steps:
       - uses: conda-incubator/setup-miniconda@v3
         with:
