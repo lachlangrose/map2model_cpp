@@ -32,5 +32,4 @@ jobs:
         with:
           skip-existing: true
           verbose: true
-          pypa/gh-action-pypi-publish
           packages-dir: wheelhouse/
