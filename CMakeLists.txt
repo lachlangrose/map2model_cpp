@@ -31,23 +31,10 @@ find_package(pybind11 CONFIG REQUIRED)
 # add_executable(map2model  ${SRCS})
 
 # Add Python include directories and libraries after creating the target
-pybind11_add_module(map2model src/local_topology_analyzer.cpp
-         src/topology_analyzer.cpp
-         src/parameters_utils.cpp
-         src/parameters_reader.cpp
-         src/converter_utils.cpp
-         src/intersector.cpp
-         src/data_reader.cpp
-         src/converter.cpp
-         src/graph.cpp
-         src/graph_utils.cpp
-         
-         src/clipper.cpp
-         src/svgbuilder.cpp
-                  src/map2model.cpp)
+pybind11_add_module(map2model ${SRCS})
 
 target_include_directories(map2model PUBLIC ${SRCS_INCLUDE} ${Python_INCLUDE_DIRS})
 target_link_libraries(map2model PRIVATE ${Python_LIBRARIES})
 
 
-install(TARGETS map2model DESTINATION ${CMAKE_INSTALL_PREFIX}/map2model)
+install(TARGETS map2model DESTINATION ${CMAKE_INSTALL_PREFIX}) #if its jsut c++ wrapper, install directly to site packages otherwise need to use a subdir
