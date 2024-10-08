@@ -3,7 +3,7 @@ name: Build conda packages
 on:
   release:
     types: [released]
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   build_wheels:

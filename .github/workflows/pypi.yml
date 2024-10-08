@@ -3,7 +3,7 @@ name: Build
 on:
   release:
     types: [released]
-  workflow_dispatch
+  workflow_dispatch:
 jobs:
   build_wheels:
     name: Build wheels on ${{ matrix.os }}
