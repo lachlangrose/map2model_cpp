@@ -1,16 +1,13 @@
-name: publish_conda
-
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - master
+name: release-please
 jobs:
-  publish:
+  release-please:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Publish Loop Conda
-        uses: Loop3D/conda-publish-action@1.3
+      - uses: GoogleCloudPlatform/release-please-action@v2
         with:
-          subdir: "conda"
-          anacondatoken: ${{ secrets.ANACONDA_TOKEN }}
-          platforms: "win osx linux"
+          release-type: python
+          package-name: map2model

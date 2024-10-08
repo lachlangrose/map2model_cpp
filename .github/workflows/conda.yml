@@ -1,7 +1,8 @@
 name: Build conda packages
 
 on:
-  push:
+  release:
+    types: [published]
 
 jobs:
   build_wheels:
@@ -30,6 +31,8 @@ jobs:
           conda install -c conda-forge conda-build scikit-build-core numpy cython anaconda-client conda-libmamba-solver -y
           conda build -c conda-forge -c loop3d --output-folder conda conda  --python ${{matrix.python-version}}
           conda convert -p all conda/linux-64/*.tar.bz2 -f -o conda
+          anaconda upload --label main conda/*/*.tar.bz2
+
       - name: upload artifacts
         uses: actions/upload-artifact@v4
         with:
