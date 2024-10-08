@@ -31,8 +31,17 @@ jobs:
         with:
           name: cibw-wheels-${{ matrix.os }}-${{ strategy.job-index }}
           path: ./wheelhouse/*.whl
-      - uses: pypa/gh-action-pypi-publish@release/v1
-        with:
-          skip-existing: true
-          verbose: true
-          packages-dir: wheelhouse/
+  jobs:
+    publish:
+      name: Publish wheels to pypi
+      runs-on: ubuntu-latest
+      needs: build_wheels
+      steps:
+        - uses: actions/download-artifact@v2
+          with:
+            name: wheelhouse
+        - uses: pypa/gh-action-pypi-publish@release/v1
+          with:
+            skip-existing: true
+            verbose: true
+            packages-dir: wheelhouse/
