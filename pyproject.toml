@@ -80,4 +80,4 @@ skip = "*-win32 *-manylinux_i686 *-musllinux_*"
 before-all = "yum install python3-devel -y"
 
 [tool.cibuildwheel.macos]
-archs = ["x86_64", "arm64"]
+archs = ["x86_64", "arm64"] 
