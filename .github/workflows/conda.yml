@@ -1,8 +1,9 @@
 name: Build conda packages
 
 on:
-  release:
-    types: [released]
+  push:
+    tags:
+      - 'v*.*.*'
   workflow_dispatch:
 
 jobs:
