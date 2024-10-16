@@ -8,6 +8,8 @@ jobs:
   build_wheels:
     name: Build wheels on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
+    env:
+      CIBW_BUILD: ${{ secrets.CIBW_BUILD }}
     strategy:
       matrix:
         os: ${{ fromJSON(vars.BUILD_OS)}}
