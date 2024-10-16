@@ -39,6 +39,8 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           path: wheelhouse
+      - name: copy to wheelhouse
+        run: cp -r wheelhouse/*/*.whl wheelhouse
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
           skip-existing: true
