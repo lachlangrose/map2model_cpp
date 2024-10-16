@@ -47,4 +47,4 @@ jobs:
         with:
           skip-existing: true
           verbose: true
-          packages-dir: wheelhouse/
+          packages-dir: wheels/
