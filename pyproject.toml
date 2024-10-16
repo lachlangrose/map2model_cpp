@@ -10,7 +10,7 @@ build-backend = "scikit_build_core.build"
 [project]
 authors = [{ name = "Lachlan Grose", email = "lachlan.grose@monash.edu" }]
 name = "map2model"
-version = "0.1.1"
+version = "0.1.2"
 description = "python bindings for map2model"
 readme = "README.md"
 requires-python = ">=3.7"
@@ -80,4 +80,4 @@ skip = "*-win32 *-manylinux_i686 *-musllinux_*"
 before-all = "yum install python3-devel -y"
 
 [tool.cibuildwheel.macos]
-archs = ["x86_64", "arm64"]
+archs = ["x86_64", "arm64"] 
