@@ -22,17 +22,8 @@ jobs:
         run: python -m pip install cibuildwheel==2.21.2
   
      
-      - name: Build wheels
-        env:
-          CIBW_BUILD: ${{ env.CIBW_BUILD || '' }}  # Use env variable or default to empty string
-        run: |
-          if [ -z "${{ env.CIBW_BUILD }}" ]; then
-            echo "CIBW_BUILD is not set, using defaults from pyproject.toml"
-            cibuildwheel --output-dir wheelhouse
-          else
-            echo "CIBW_BUILD is set to ${{ env.CIBW_BUILD }}, using it"
-            cibuildwheel --output-dir wheelhouse
-          fi
+      - name: build
+        run: python -m cibuildwheel --output-dir wheelhouse
       - uses: actions/upload-artifact@v4
         with:
           name: cibw-wheels-${{ matrix.os }}-${{ strategy.job-index }}
