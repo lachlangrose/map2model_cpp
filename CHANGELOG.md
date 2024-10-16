@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.1](https://www.github.com/Loop3D/map2model_cpp/compare/v0.1.0...v0.1.1) (2024-10-16)
+
+
+### Bug Fixes
+
+* cmakelist was causing map2model to not be imported by python ([6475776](https://www.github.com/Loop3D/map2model_cpp/commit/64757762ac352688a3fd18f15b62024b1d44ddab))
+
 ## 0.1.0 (2024-10-08)
 
 
