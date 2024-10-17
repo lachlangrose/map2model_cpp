@@ -6,6 +6,7 @@ on:
 jobs:
   release-please:
     runs-on: ubuntu-latest
+    id: release
     steps:
       - uses: GoogleCloudPlatform/release-please-action@v4
         with:
@@ -13,9 +14,9 @@ jobs:
           package-name: map2model
       - name: Debug release_created output
         run: |
-          echo "Release created: ${{ steps.release.outputs }}"
+          echo "Release created: ${{ steps.release.outputs.release_created }}"
     outputs:
-      release_created: ${{ steps.release.outputs.releases_created }}
+      release_created: ${{ steps.release.outputs.release_created }}
 
   pypi:
     runs-on: ubuntu-latest
