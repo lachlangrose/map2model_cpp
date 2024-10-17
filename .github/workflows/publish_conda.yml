@@ -6,9 +6,9 @@ on:
 jobs:
   release-please:
     runs-on: ubuntu-latest
-    id: release
     steps:
       - uses: GoogleCloudPlatform/release-please-action@v4
+        id: release
         with:
           release-type: python
           package-name: map2model
