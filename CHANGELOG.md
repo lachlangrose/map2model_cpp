@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.10](https://github.com/Loop3D/map2model_cpp/compare/v0.1.9...v0.1.10) (2024-10-17)
+
+
+### Bug Fixes
+
+* id for steps ([f7aab55](https://github.com/Loop3D/map2model_cpp/commit/f7aab55840166209e4be0e23fae95bc33d9132bc))
+* missing id ([ee99f58](https://github.com/Loop3D/map2model_cpp/commit/ee99f58c2e416f1bc6c2821ecd04e69fa1dc54ec))
+
 ## [0.1.9](https://github.com/Loop3D/map2model_cpp/compare/v0.1.8...v0.1.9) (2024-10-17)
 
 
