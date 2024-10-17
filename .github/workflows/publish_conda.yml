@@ -13,9 +13,9 @@ jobs:
           package-name: map2model
       - name: Debug release_created output
         run: |
-          echo "Release created: ${{ steps.release.outputs.release_created }}"
+          echo "Release created: ${{ steps.release.outputs.releases_created }}"
     outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
+      release_created: ${{ steps.release.outputs.releases_created }}
 
   pypi:
     runs-on: ubuntu-latest
