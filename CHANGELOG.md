@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.9](https://github.com/Loop3D/map2model_cpp/compare/v0.1.8...v0.1.9) (2024-10-17)
+
+
+### Bug Fixes
+
+* more debuging ([6eea1f0](https://github.com/Loop3D/map2model_cpp/commit/6eea1f09dbb95e9cc4868982e478e2db6ced1ff1))
+
 ## [0.1.8](https://github.com/Loop3D/map2model_cpp/compare/v0.1.7...v0.1.8) (2024-10-17)
 
 
