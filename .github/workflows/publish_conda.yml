@@ -15,6 +15,7 @@ jobs:
       release_created: ${{ steps.release.outputs.release_created }}
   debug:
     runs-on: ubuntu-latest
+    needs: release-please
     steps:
       - name: Debug release_created output
         run: |
