@@ -13,7 +13,7 @@ jobs:
           package-name: map2model
       - name: Debug release_created output
         run: |
-          echo "Release created: ${{ steps.release.outputs.releases_created }}"
+          echo "Release created: ${{ steps.release.outputs }}"
     outputs:
       release_created: ${{ steps.release.outputs.releases_created }}
 
