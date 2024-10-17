@@ -14,8 +14,10 @@ jobs:
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
   debug:
-    - name: Debug release_created output
-      run: echo "Release created: ${{ steps.release.outputs.release_created }}"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug release_created output
+        run: echo "Release created: ${{ steps.release.outputs.release_created }}"
   pypi:
     runs-on: ubuntu-latest
     needs: release-please
