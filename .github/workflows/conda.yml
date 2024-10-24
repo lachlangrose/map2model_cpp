@@ -20,7 +20,8 @@ jobs:
           auto-update-conda: true
           python-version: ${{ matrix.python-version }}
      
-      
+      - name: List Visual Studio versions
+        run: vswhere -latest -format json
       - uses: actions/checkout@v4
       - name: update submodules
         #       shell: bash -l {0}
