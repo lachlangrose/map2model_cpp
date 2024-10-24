@@ -17,6 +17,7 @@ requirements:
     - scikit-build-core
     - pybind11
     - cmake
+    - ninja
   host:
     - pip
     - python
