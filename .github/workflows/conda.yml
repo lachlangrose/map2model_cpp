@@ -13,10 +13,10 @@ jobs:
         os: ["windows-latest"]
         python-version: ["3.11"]
     steps:
-     - name: Set up Visual Studio
+      - name: Set up Visual Studio
         uses: microsoft/setup-msbuild@v2
         with:
-          vs-version: '[15)'
+           vs-version: '[15)'
       - uses: conda-incubator/setup-miniconda@v3
         with:
           auto-update-conda: true
