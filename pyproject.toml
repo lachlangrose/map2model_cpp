@@ -30,11 +30,7 @@ classifiers = [
 [tool.scikit-build]
 wheel.expand-macos-universal-tags = true
 
-[tool.scikit-build.cmake]
-args = [
-  "-G", "Visual Studio 17 2022",
-  "-DCMAKE_BUILD_TYPE=Release"
-]
+
 
 [tool.cibuildwheel.pyodide]
 environment.CFLAGS = "-fexceptions"
