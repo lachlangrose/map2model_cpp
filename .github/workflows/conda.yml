@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Set up Visual Studio
         uses: microsoft/setup-msbuild@v2
-        with:
-           vs-version: '[15)'
       - uses: conda-incubator/setup-miniconda@v3
         with:
           auto-update-conda: true
