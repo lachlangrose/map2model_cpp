@@ -20,12 +20,15 @@ jobs:
           auto-update-conda: true
           python-version: ${{ matrix.python-version }}
      
-        
+      
       - uses: actions/checkout@v4
       - name: update submodules
         #       shell: bash -l {0}
         run: |
           git submodule update --init --recursive
+      - name: test build
+        run: |
+           pip install .
       - name: Conda build
         env:
           ANACONDA_API_TOKEN: ${{ secrets.ANACONDA_TOKEN  }}
