@@ -10,10 +10,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: ["windows-latest"]
+        os: ${{ fromJSON(vars.BUILD_OS)}}
         python-version: ["3.11"]
     steps:
-     
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          auto-update-conda: true
+          python-version: ${{ matrix.python-version }}
       - uses: actions/checkout@v4
       - name: update submodules
         #       shell: bash -l {0}
