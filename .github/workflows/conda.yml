@@ -13,23 +13,13 @@ jobs:
         os: ["windows-latest"]
         python-version: ["3.11"]
     steps:
-      - name: Set up Visual Studio
-        uses: microsoft/setup-msbuild@v2
-      - uses: GuillaumeFalourd/setup-windows10-sdk-action@v2
-      - uses: conda-incubator/setup-miniconda@v3
-        with:
-          auto-update-conda: true
-          python-version: ${{ matrix.python-version }}
-      - name: List Visual Studio versions
-        run: vswhere -latest -format json
+     
       - uses: actions/checkout@v4
       - name: update submodules
         #       shell: bash -l {0}
         run: |
           git submodule update --init --recursive
-      - name: test build
-        run: |
-           pip install .
+      
       - name: Conda build
         env:
           ANACONDA_API_TOKEN: ${{ secrets.ANACONDA_TOKEN  }}
