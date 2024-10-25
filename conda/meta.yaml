@@ -13,7 +13,6 @@ build:
 
 requirements:
   build: 
-    - {{ compiler('cxx') }}
     - scikit-build-core
     - pybind11
     - cmake
