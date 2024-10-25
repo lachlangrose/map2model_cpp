@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: Set up Visual Studio
         uses: microsoft/setup-msbuild@v2
+      - uses: GuillaumeFalourd/setup-windows10-sdk-action@v2
       - uses: conda-incubator/setup-miniconda@v3
         with:
           auto-update-conda: true
