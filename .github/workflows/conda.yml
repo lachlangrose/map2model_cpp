@@ -19,9 +19,6 @@ jobs:
         with:
           auto-update-conda: true
           python-version: ${{ matrix.python-version }}
-      - uses: ilammy/msvc-dev-cmd@v1
-        with:
-          toolset: 15.0
       - name: List Visual Studio versions
         run: vswhere -latest -format json
       - uses: actions/checkout@v4
